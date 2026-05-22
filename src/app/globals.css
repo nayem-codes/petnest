@@ -1,26 +1,25 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* 1. Load the main daisyUI plugin */
+@plugin "daisyui";
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* 2. Create your custom theme using the dedicated sub-plugin */
+@plugin "daisyui/theme" {
+  name: "petnest";
+  default: true; /* Makes it apply automatically if data-theme is missing */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+  --color-primary: #6F8F72;
+  --color-secondary: #F2D6C2;
+  --color-accent: #E07A5F;
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  --color-neutral: #2D3436;
+
+  --color-base-100: #FAFAF7;
+  --color-base-200: #F6F5F2;
+  --color-base-300: #ECEAE4;
+
+  --color-info: #7BA7C7;
+  --color-success: #78A97A;
+  --color-warning: #E8B45D;
+  --color-error: #D96C6C;
 }

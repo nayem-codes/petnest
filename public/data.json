@@ -1,0 +1,88 @@
+{
+  "pets": [
+    {
+      "petName": "Buddy",
+      "species": "Dog",
+      "breed": "Golden Retriever",
+      "age": 3,
+      "gender": "Male",
+      "imageUrl": "https://i.pinimg.com/1200x/07/b2/40/07b240561cb656aec289df602e603bee.jpg",
+      "healthStatus": "Healthy",
+      "vaccinationStatus": "Fully Vaccinated",
+      "location": "New York, USA",
+      "adoptionFee": 150,
+      "description": "Friendly and energetic dog who loves outdoor activities and children.",
+      "ownerEmail": "owner1@example.com"
+    },
+    {
+      "petName": "Luna",
+      "species": "Cat",
+      "breed": "Persian",
+      "age": 2,
+      "gender": "Female",
+      "imageUrl": "https://i.postimg.cc/example/luna.jpg",
+      "healthStatus": "Healthy",
+      "vaccinationStatus": "Fully Vaccinated",
+      "location": "Los Angeles, USA",
+      "adoptionFee": 80,
+      "description": "Calm indoor cat with a gentle personality.",
+      "ownerEmail": "owner2@example.com"
+    },
+    {
+      "petName": "Kiwi",
+      "species": "Bird",
+      "breed": "Parakeet",
+      "age": 1,
+      "gender": "Male",
+      "imageUrl": "https://i.postimg.cc/example/kiwi.jpg",
+      "healthStatus": "Healthy",
+      "vaccinationStatus": "Vaccination Not Required",
+      "location": "Chicago, USA",
+      "adoptionFee": 40,
+      "description": "Colorful and playful bird that enjoys interaction.",
+      "ownerEmail": "owner3@example.com"
+    },
+    {
+      "petName": "Snowball",
+      "species": "Rabbit",
+      "breed": "Holland Lop",
+      "age": 2,
+      "gender": "Female",
+      "imageUrl": "https://i.postimg.cc/example/snowball.jpg",
+      "healthStatus": "Healthy",
+      "vaccinationStatus": "Partially Vaccinated",
+      "location": "Houston, USA",
+      "adoptionFee": 60,
+      "description": "Cute rabbit with soft fur and a calm temperament.",
+      "ownerEmail": "owner4@example.com"
+    },
+    {
+      "petName": "Max",
+      "species": "Dog",
+      "breed": "German Shepherd",
+      "age": 4,
+      "gender": "Male",
+      "imageUrl": "https://i.postimg.cc/example/max.jpg",
+      "healthStatus": "Minor skin allergy",
+      "vaccinationStatus": "Fully Vaccinated",
+      "location": "Seattle, USA",
+      "adoptionFee": 180,
+      "description": "Smart and loyal companion with basic obedience training.",
+      "ownerEmail": "owner5@example.com"
+    },
+    {
+      "petName": "Milo",
+      "species": "Cat",
+      "breed": "Maine Coon",
+      "age": 1,
+      "gender": "Male",
+      "imageUrl": "https://i.postimg.cc/example/milo.jpg",
+      "healthStatus": "Healthy",
+      "vaccinationStatus": "Fully Vaccinated",
+      "location": "Boston, USA",
+      "adoptionFee": 100,
+      "description": "Curious and affectionate cat who loves attention.",
+      "ownerEmail": "owner6@example.com"
+    }
+  ]
+}
