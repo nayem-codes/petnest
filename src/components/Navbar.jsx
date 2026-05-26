@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function Navbar() {
@@ -55,11 +56,19 @@ export default function Navbar() {
         <div className="navbar-end gap-2">
           {isLoggedIn ? (
             <div className="dropdown dropdown-end">
-              <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar online placeholder border-2 border-primary/20 hover:border-primary transition-all duration-200">
-                <div className="bg-secondary text-neutral-content w-10 rounded-full flex justify-center items-center">
-                  <span className="text-neutral font-bold text-sm">ME</span>
+              <button className="flex items-center gap-3 p-1 rounded-full hover:bg-muted transition-colors border border-transparent hover:border-border">
+                <Image
+                  width={40}
+                  height={40}
+                  src="https://i.pinimg.com/1200x/2c/78/b5/2c78b584340e6d3db4de341708914ab1.jpg"
+                  alt="avatar"
+                  className="w-10 h-10 rounded-full object-cover ring-2 ring-blue-600/10"
+                />
+                <div className="text-left hidden lg:block">
+                  <p className="text-sm font-bold truncate max-w-25">Nayem Uddin</p>
+                  <p className="text-[10px] text-slate-500">Student</p>
                 </div>
-              </div>
+              </button>
               <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-2xl z-10 mt-3 w-52 p-2 shadow-md border border-base-200 gap-1">
                 <div className="px-4 py-2 text-xs font-bold text-neutral/50 uppercase">
                   My Account
@@ -99,7 +108,7 @@ export default function Navbar() {
       border-l border-base-200
       z-50
       transition-transform duration-300
-      ${isDashboardOpen ? "translate-x-0" : "translate-x-full"}
+      ${isDashboardOpen ? "translate-x-0" : "hidden"}
     `}
         >
           <div className="p-6">
@@ -127,13 +136,13 @@ export default function Navbar() {
 
               <li>
                 <a className="rounded-xl hover:bg-secondary/40">
-                   Add Pet
+                  Add Pet
                 </a>
               </li>
 
               <li>
                 <a className="rounded-xl hover:bg-secondary/40">
-                   My Listings
+                  My Listings
                 </a>
               </li>
 
@@ -145,4 +154,4 @@ export default function Navbar() {
       </div>
     </div>
   );
-}
+}``
