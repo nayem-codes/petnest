@@ -30,15 +30,21 @@ async function run() {
     const petCollection = db.collection("pets");
 
     app.get("/pets", async (req, res) => {
-      const result = await petCollection.find({}).toArray(); 
-    res.send(result);
+      const result = await petCollection.find({}).toArray();
+      res.send(result);
     })
 
-    app.get("/pets/:petsId", async(req,res) =>{
-     const {petsId} = req.params;
-     const query = {_id: new ObjectId(petsId)}
-     const result = await petCollection.findOne(query);
-     res.send(result)
+    app.get("/feature", async (req, res) => {
+      const cursor = petCollection.find().limit(4);
+      const result = await cursor.toArray();
+      res.send(result);
+    })
+
+    app.get("/pets/:petsId", async (req, res) => {
+      const { petsId } = req.params;
+      const query = { _id: new ObjectId(petsId) }
+      const result = await petCollection.findOne(query);
+      res.send(result)
     })
 
     console.log("Pinged your deployment. You successfully connected to MongoDB!");

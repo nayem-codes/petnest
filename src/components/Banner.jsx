@@ -71,7 +71,7 @@ export default function Banner() {
             {/* Main Image Container */}
             <div className="absolute inset-0 bg-base-200 rounded-[40px] overflow-hidden shadow-lg border-4 border-base-100 transition-all duration-500 hover:scale-[1.02]">
               <img 
-                src="https://i.pinimg.com/564x/41/dd/8d/41dd8d1033230b4ec748283f5108f435.jpg" 
+                src="https://i.pinimg.com/736x/ba/ee/b5/baeeb58fe0fc993520651efdf75175e1.jpg" 
                 alt="Happy dog looking ready for adoption" 
                 className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-110"
               />
