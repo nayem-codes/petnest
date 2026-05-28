@@ -6,6 +6,7 @@ import WhyAdopt from '@/components/WhyAdopt';
 import SuccessStories from '@/components/SuccessStories';
 import PetCareTips from '@/components/PetCareTips';
 import VolunteerBanner from '@/components/VolunteerBanner';
+import ShelterStats from '@/components/ShelterStats';
 
 const page = () => {
   return (
@@ -17,6 +18,7 @@ const page = () => {
       <SuccessStories />
       <PetCareTips />
       <VolunteerBanner />
+      <ShelterStats />
     </div>
   );
 };
