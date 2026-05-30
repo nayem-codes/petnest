@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -20,34 +21,42 @@ export default function Navbar() {
               </svg>
             </div>
             <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-2xl z-10 mt-3 w-52 p-2 shadow-md border border-base-200 gap-1">
-              <li><a className="rounded-xl font-medium text-neutral hover:bg-secondary/40">Home</a></li>
-              <li><a className="rounded-xl font-medium text-neutral hover:bg-secondary/40">All Pets</a></li>
+              <li>
+                <Link href={"/"} className="rounded-full font-semibold px-4 py-2 text-neutral hover:bg-secondary/50 hover:text-primary transition-all duration-200">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href={"/pets"} className="rounded-full font-semibold px-4 py-2 text-neutral hover:bg-secondary/50 hover:text-primary transition-all duration-200">
+                  All Pets
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Logo Brand Link */}
-          <a className="flex items-center gap-2 cursor-pointer group select-none">
+          <Link href={"/"} className="flex items-center gap-2 cursor-pointer group select-none">
             <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-base-100 shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12">
               🐾
             </div>
             <span className="font-bold text-xl tracking-tight text-neutral group-hover:text-primary transition-colors">
               Pet<span className="text-primary font-black">Nest</span>
             </span>
-          </a>
+          </Link>
         </div>
 
         {/* CENTER SECTION: Public Desktop Navigation */}
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-1">
             <li>
-              <a className="rounded-full font-semibold px-4 py-2 text-neutral hover:bg-secondary/50 hover:text-primary transition-all duration-200">
+              <Link href={"/"} className="rounded-full font-semibold px-4 py-2 text-neutral hover:bg-secondary/50 hover:text-primary transition-all duration-200">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="rounded-full font-semibold px-4 py-2 text-neutral hover:bg-secondary/50 hover:text-primary transition-all duration-200">
+              <Link href={"/pets"} className="rounded-full font-semibold px-4 py-2 text-neutral hover:bg-secondary/50 hover:text-primary transition-all duration-200">
                 All Pets
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -92,12 +101,21 @@ export default function Navbar() {
             </div>
 
           ) : (
-            <button
-              onClick={() => setIsLoggedIn(true)}
-              className="btn btn-primary rounded-full px-6 shadow-sm font-bold transition-all duration-300 hover:scale-105 active:scale-95"
-            >
-              Login
-            </button>
+            <div className="flex gap-2">
+              <Link
+                href="/login"
+                className="btn btn-transparent rounded-full px-6 shadow-sm font-bold transition-all duration-300 hover:scale-105 active:scale-95"
+              >
+                Login
+              </Link>
+              <Link
+                href="/register"
+                className="btn btn-primary rounded-full px-6 shadow-sm font-bold transition-all duration-300 hover:scale-105 active:scale-95"
+              >
+                Register
+              </Link>
+
+            </div>
           )}
         </div>
         <div
@@ -154,4 +172,4 @@ export default function Navbar() {
       </div>
     </div>
   );
-}``
+} ``

@@ -35,7 +35,7 @@ const FeaturePets = async () => {
 
                 {/* GRID CONTAINER */}
                 {pets && pets.length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {pets.map((pet) => (
                             <PetCard key={pet?._id} pet={pet} />
                         ))}

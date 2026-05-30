@@ -14,11 +14,11 @@ const page = () => {
       <Banner />
       {/* <PetPage/> */}
       <FeaturePets />
+      <ShelterStats />
       <WhyAdopt />
       <SuccessStories />
       <PetCareTips />
       <VolunteerBanner />
-      <ShelterStats />
     </div>
   );
 };

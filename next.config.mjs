@@ -7,6 +7,12 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'i.pinimg.com',
+        pathname: '/**', 
+      },
+      {
+        protocol: 'https', 
+        hostname: '**.google.com', 
+        pathname: '/**',
       },
     ],
   },

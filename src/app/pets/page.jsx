@@ -17,7 +17,7 @@ const PetPage = async() => {
                         <BookOpen className="w-6 h-6 text-primary" />
                         All Pets
                     </h2>
-                    <button className="btn btn-secondary rounded-full px-6 font-bold">
+                    <button className="btn btn-secondary text-slate-800 rounded-full px-6 font-bold">
 
                         <Filter className="w-4 h-4" />
 
