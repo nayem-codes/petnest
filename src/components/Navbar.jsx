@@ -2,10 +2,19 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { signOut, useSession } from "@/lib/auth-client";
 
 export default function Navbar() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isDashboardOpen, setIsDashboardOpen] = useState(false);
+  const router = useRouter();
+  
+  const { data: session, isPending } = useSession();
+
+  const handleLogOut = async () => {
+    await signOut();
+    router.push("/");
+  };
 
   return (
     <div className="sticky top-0 z-50 w-full px-4 pt-4 bg-transparent backdrop-blur-md">
@@ -61,29 +70,31 @@ export default function Navbar() {
           </ul>
         </div>
 
-        {/* RIGHT SECTION: Dynamic Profile Dropdown */}
+        {/* RIGHT SECTION*/}
         <div className="navbar-end gap-2">
-          {isLoggedIn ? (
+          {isPending ? (
+            <div className="w-10 h-10 rounded-full bg-neutral/10 animate-pulse"></div>
+          ) : session ? (
             <div className="dropdown dropdown-end">
               <button className="flex items-center gap-3 p-1 rounded-full hover:bg-muted transition-colors border border-transparent hover:border-border">
                 <Image
                   width={40}
                   height={40}
-                  src="https://i.pinimg.com/1200x/2c/78/b5/2c78b584340e6d3db4de341708914ab1.jpg"
+                  src={session.user.image || "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?q=80&w=400"}
                   alt="avatar"
                   className="w-10 h-10 rounded-full object-cover ring-2 ring-blue-600/10"
                 />
                 <div className="text-left hidden lg:block">
-                  <p className="text-sm font-bold truncate max-w-25">Nayem Uddin</p>
-                  <p className="text-[10px] text-slate-500">Student</p>
+                  <p className="text-sm font-bold truncate max-w-25">{session.user.name}</p>
+                  {/* <p className="text-[10px] text-slate-500">Student</p> */}
                 </div>
               </button>
               <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-2xl z-10 mt-3 w-52 p-2 shadow-md border border-base-200 gap-1">
-                <div className="px-4 py-2 text-xs font-bold text-neutral/50 uppercase">
-                  My Account
+                <div className="px-4 py-2 text-xs font-bold text-neutral/50 uppercase truncate max-w-full">
+                  {session.user.email}
                 </div>
+                <div className="divider my-0 opacity-50"></div>
                 <li>
-                  {/* Clicking this points users directly to the Dashboard sub-view */}
                   <a onClick={() => setIsDashboardOpen(true)} className="rounded-xl font-medium text-neutral hover:bg-secondary/40 py-2.5">
                     Dashboard
                   </a>
@@ -91,7 +102,7 @@ export default function Navbar() {
                 <div className="divider my-0 opacity-50"></div>
                 <li>
                   <button
-                    onClick={() => setIsLoggedIn(false)}
+                    onClick={handleLogOut}
                     className="rounded-xl font-medium text-error hover:bg-error/10 py-2.5"
                   >
                     Logout
@@ -99,8 +110,8 @@ export default function Navbar() {
                 </li>
               </ul>
             </div>
-
           ) : (
+            /*Login/Register links if logged out */
             <div className="flex gap-2">
               <Link
                 href="/login"
@@ -114,28 +125,27 @@ export default function Navbar() {
               >
                 Register
               </Link>
-
             </div>
           )}
         </div>
+
+        {/* SIDE DRAWER: Dashboard View Panel */}
         <div
           className={`
-      fixed top-0 right-0 h-screen
-      w-72 bg-base-100
-      shadow-xl
-      border-l border-base-200
-      z-50
-      transition-transform duration-300
-      ${isDashboardOpen ? "translate-x-0" : "hidden"}
-    `}
+            fixed top-0 right-0 h-screen
+            w-72 bg-base-100
+            shadow-xl
+            border-l border-base-200
+            z-50
+            transition-transform duration-300
+            ${isDashboardOpen ? "translate-x-0" : "translate-x-full hidden"}
+          `}
         >
           <div className="p-6">
-
             <div className="flex justify-between items-center mb-8">
               <h2 className="font-bold text-xl text-primary">
                 Dashboard
               </h2>
-
               <button
                 onClick={() => setIsDashboardOpen(false)}
                 className="btn btn-circle btn-sm btn-ghost"
@@ -145,31 +155,26 @@ export default function Navbar() {
             </div>
 
             <ul className="menu gap-2">
-
               <li>
                 <a className="rounded-xl hover:bg-secondary/40">
                   My Requests
                 </a>
               </li>
-
               <li>
                 <a className="rounded-xl hover:bg-secondary/40">
                   Add Pet
                 </a>
               </li>
-
               <li>
                 <a className="rounded-xl hover:bg-secondary/40">
                   My Listings
                 </a>
               </li>
-
             </ul>
-
           </div>
         </div>
 
       </div>
     </div>
   );
-} ``
+}
