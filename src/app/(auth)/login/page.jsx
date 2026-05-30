@@ -18,8 +18,9 @@ export default function Login() {
 
         const { data, error } = await signIn.email({
             ...loginData,
-            callbackURL: "/"
         });
+
+
 
         if (error) {
             toast.error("Authentication failed. Please check your credentials.");
@@ -45,10 +46,10 @@ export default function Login() {
         <div className="min-h-[80vh] flex flex-col bg-base-200 py-12">
             <div className="grow flex items-center justify-center p-4">
                 <div className="w-full max-w-md">
-                    
+
                     {/* CARD CONTAINER */}
                     <div className="bg-base-100 p-8 md:p-10 rounded-[2.5rem] border border-base-300/60 shadow-2xl space-y-6 relative overflow-hidden">
-                        
+
                         {/* Decorative radial background accent */}
                         <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
 
@@ -90,7 +91,7 @@ export default function Login() {
 
                         {/* EMAIL CREDENTIALS FORM */}
                         <form onSubmit={handleLogin} className="space-y-4">
-                            
+
                             {/* Email Input */}
                             <div className="form-control space-y-1.5">
                                 <label htmlFor="email" className="text-xs font-bold text-neutral/70 uppercase tracking-wider ml-1">

@@ -19,7 +19,7 @@ const PetCard = ({ pet }) => {
 
   return (
     <div
-      className="group flex flex-col bg-base-100 rounded-3xl border border-base-300/60 overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+      className="group flex flex-col bg-base-100 rounded-3xl border border-base-300/60 overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl h-full"
     >
       {/* CARD IMAGE CONTAINER */}
       <div className="relative  aspect-square overflow-hidden bg-base-200">
@@ -91,7 +91,7 @@ const PetCard = ({ pet }) => {
         </div>
 
         {/* Action Button Row */}
-        <div className="pt-2">
+        <div className="pt-2 mt-auto">
           <Link href={`/pets/${_id}`} className="w-full">
             <button className="btn btn-secondary/40 hover:btn-primary w-full rounded-2xl font-bold transition-all duration-200 text-sm group-hover:shadow-xs text-neutral hover:text-base-100">
               View Details
